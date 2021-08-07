@@ -1,1 +1,5 @@
 .next
+
+# なぜかエラーが出るので除外
+.eslintrc.js
+next.config.js

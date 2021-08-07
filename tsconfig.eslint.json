@@ -6,5 +6,5 @@ A common fix is to create a tsconfig.eslint.json file, which extends your tsconf
 */
 {
   "extends": "./tsconfig.json",
-  "include": [".prettierrc.js", ".eslintrc.js", "next.config.js", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [".*.js", "next.config.js", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
 }
