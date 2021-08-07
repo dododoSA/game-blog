@@ -1,0 +1,10 @@
+/*
+I get this error when running ESLint: "The file must be included in at least one of the projects provided"
+This means you are attempting to lint a file that tsconfig.json doesn't include.
+
+A common fix is to create a tsconfig.eslint.json file, which extends your tsconfig.json file and includes all files you are linting.
+*/
+{
+  "extends": "./tsconfig.json",
+  "include": [".prettierrc.js", ".eslintrc.js", "next.config.js", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+}
