@@ -1,5 +1,3 @@
-import { Layout } from 'Components/Common/Layout';
-
-const Home = () => <Layout>a</Layout>;
+const Home = () => <>a</>;
 
 export default Home;

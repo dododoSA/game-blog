@@ -1,0 +1,13 @@
+.menu_item {
+  color: #1D3557;
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+}
+
+.menu_item:hover {
+  background-color: rgb(223, 232, 236);
+}
+
+.current {
+  border-bottom: #1D3557 solid 1px;
+}

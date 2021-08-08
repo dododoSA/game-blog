@@ -1,0 +1,19 @@
+.container {
+  padding: 0 4rem;
+  margin: 0 auto;
+
+  .article_container {
+    display: flex;
+    justify-content: space-between;
+
+    .main_content {
+      width: calc(100% - 330px);
+    }
+
+    .side_bar {
+      width: 300px;
+    }
+  }
+}
+
+

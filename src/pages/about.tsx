@@ -1,5 +1,3 @@
-import { Layout } from 'Components/Common/Layout';
-
-const About = () => <Layout>about</Layout>;
+const About = () => <>about</>;
 
 export default About;

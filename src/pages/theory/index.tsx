@@ -1,9 +1,9 @@
-import { Layout } from 'Components/Common/Layout';
+import { ArticleLayout } from 'Components/Layouts/ArticleLayout';
 
 const Theory = () => (
-  <Layout>
+  <ArticleLayout>
     <div>Hello theory</div>
-  </Layout>
+  </ArticleLayout>
 );
 
 export default Theory;
