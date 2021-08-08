@@ -1,8 +1,9 @@
 .container {
   padding: 0 4rem;
   margin: 0 auto;
+  max-width: 1200px;
 
-  .article_container {
+  .article_wrapper {
     display: flex;
     justify-content: space-between;
 
