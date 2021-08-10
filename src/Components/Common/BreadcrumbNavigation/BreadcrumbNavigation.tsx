@@ -1,21 +1,34 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import styles from 'styles/Common/BreadcrumbNavigation/BreadcrumbNavigation.module.scss';
 
 // TODO: ちょっと面倒くさそうなので一旦後回し 後で直しておく
-const BreadcrumbNavigation = () => {
+const BreadcrumbNavigation = ({
+  paths,
+}: {
+  paths: {
+    href: string;
+    label: string;
+  }[];
+}) => {
   const router = useRouter();
-  const paths = router.pathname.split(/(?=\/)/g);
-  let tmp = '';
-  const breadcrumbs = paths.map((p) => {
-    tmp += p;
-    return (
-      <Link key={tmp} href={tmp}>
-        <a>{tmp}</a>
+  const breadcrumbs = paths.map((p) => (
+    <li key={p.label}>
+      <Link href={p.href}>
+        <a>{p.label}</a>
       </Link>
-    );
-  });
+    </li>
+  ));
 
-  return <>{router.pathname !== '/' && <div>{breadcrumbs}</div>}</>;
+  return (
+    <>
+      {router.pathname !== '/' && (
+        <div className={styles.container}>
+          <ul>{breadcrumbs}</ul>
+        </div>
+      )}
+    </>
+  );
 };
 
 export { BreadcrumbNavigation };

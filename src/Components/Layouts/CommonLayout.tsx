@@ -9,7 +9,6 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => (
     <Header />
     <main>
       <div className={styles.container}>
-        <BreadcrumbNavigation />
         {children}
       </div>
     </main>

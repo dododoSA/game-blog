@@ -1,9 +1,20 @@
 import styles from 'styles/Layouts/ArticleLayout.module.scss';
 import { SideCard } from 'Components/SideContents/SideCard';
+import { BreadcrumbNavigation } from 'Components/Common/BreadcrumbNavigation/BreadcrumbNavigation';
 
 // 記事関連のページのレイアウト
-const ArticleLayout = ({ children }: { children: React.ReactNode }) => (
+const ArticleLayout = ({
+  breadcrumbPaths,
+  children,
+}: {
+  breadcrumbPaths: {
+    href: string;
+    label: string;
+  }[];
+  children: React.ReactNode;
+}) => (
   <div className={styles.container}>
+    <BreadcrumbNavigation paths={breadcrumbPaths} />
     <div className={styles.article_wrapper}>
       <article className={styles.main_content}>{children}</article>
       <aside className={styles.side_bar}>
@@ -15,5 +26,4 @@ const ArticleLayout = ({ children }: { children: React.ReactNode }) => (
     <div>recent posts etc.</div>
   </div>
 );
-
 export { ArticleLayout };
