@@ -12,7 +12,7 @@ const BreadcrumbNavigation = ({
   }[];
 }) => {
   const router = useRouter();
-  const breadcrumbs = paths.map((p, index) => (
+  const breadcrumbs = paths.map((p) => (
     <li key={p.label}>
       <Link href={p.href}>
         <a>{p.label}</a>
