@@ -1,6 +1,6 @@
 import { ArticleLayout } from 'Components/Layouts/ArticleLayout';
 import { Article } from 'Components/MainContents/Article/Article';
-import { getPostFilteredByCategory, getPostsFilteredByCategory } from 'utils/mdxUtils';
+import { getAllPosts, getBreadcrumbPaths, getPost } from 'utils/mdxUtils';
 import { GetStaticProps } from 'next';
 import { IPost } from 'types/post';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -20,16 +20,19 @@ const CPost = ({ breadcrumbPaths, source, frontMatter }: Props) => (
     <Article source={source} frontMatter={frontMatter} />
   </ArticleLayout>
 );
+
+const MDX_PATH = 'theory/pglanguage/c';
+
 export async function getStaticPaths() {
   // NOTE: Next.js は __dirname が使えないので動的にパスに応じた mdx を指定するのが難しい. よって category で検索する形で paths を取得
   // 一応 mdx を CMS で管理したりする可能性もあるので分けて保存したい
-  const posts = getPostsFilteredByCategory(['slug'], { subcategory2: 'c' });
-
+  const posts = getAllPosts(MDX_PATH, ['slug']);
   const paths = posts.map((post) => ({
     params: {
       slug: post.slug,
     },
   }));
+
   return {
     paths,
     fallback: false,
@@ -37,33 +40,12 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data } = await getPostFilteredByCategory(params?.slug as string, { subcategory2: 'c' });
+  const { content, data } = getPost(params?.slug as string, MDX_PATH);
   const mdxSource = await serialize(content);
+  const breadcrumbPaths = getBreadcrumbPaths(MDX_PATH, data as IPost);
   return {
     props: {
-      // TODO: 自動で取得できるようにする
-      breadcrumbPaths: [
-        {
-          href: '/',
-          label: 'HOME',
-        },
-        {
-          href: '/theory',
-          label: '理論編',
-        },
-        {
-          href: '/theory/pglanguage',
-          label: 'プログラミング言語',
-        },
-        {
-          href: '/theory/pglanguage/c',
-          label: 'C言語',
-        },
-        {
-          href: `/theory/pglanguage/c/${data.slug}`,
-          label: data.title,
-        },
-      ],
+      breadcrumbPaths,
       source: mdxSource,
       frontMatter: data,
     },

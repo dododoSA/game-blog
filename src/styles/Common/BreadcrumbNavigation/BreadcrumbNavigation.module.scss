@@ -15,5 +15,14 @@
       content: '>';
       margin: 0 10px;
     }
+
+    li:nth-last-child(n+2) {
+      color: #808080;
+    }
+
+    li > a:hover {
+      text-decoration: underline;
+      color: #1D3557;
+    }
   }
 }

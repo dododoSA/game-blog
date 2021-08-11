@@ -1,15 +1,16 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-
-// TODO: リファクタリング
+import { IPost } from 'types/post';
+import { BREADCRUMB_LABEL } from 'const/breadcrumbLabel';
 
 const POSTS_PATH = join(process.cwd(), 'posts');
 
-const getPostFilePaths = () => fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
+const getPostFilePaths = (MDX_PATH: string) =>
+  fs.readdirSync(join(POSTS_PATH, MDX_PATH)).filter((path) => /\.mdx?$/.test(path));
 
-const getPost = (slug: string) => {
-  const fullPath = join(POSTS_PATH, `${slug}.mdx`);
+const getPost = (slug: string, path: string) => {
+  const fullPath = join(POSTS_PATH, path, `${slug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   return matter(fileContents);
 };
@@ -18,9 +19,9 @@ type Items = {
   [key: string]: string;
 };
 
-const getPostItems = (filePath: string, fields: string[] = []) => {
-  const slug = filePath.replace(/\.mdx?$/, '');
-  const { data, content } = getPost(slug);
+const getPostItems = (fileName: string, dirPath: string, fields: string[] = []) => {
+  const slug = fileName.replace(/\.mdx?$/, '');
+  const { data, content } = getPost(slug, dirPath);
   const items: Items = {};
 
   // Ensure only the minimal needed data is exposed TODO: 確認
@@ -36,56 +37,43 @@ const getPostItems = (filePath: string, fields: string[] = []) => {
   return items;
 };
 
-const getPostsFilteredByCategory = (
-  fields: string[] = [],
-  {
-    category,
-    subcategory1,
-    subcategory2,
-  }: {
-    category?: string;
-    subcategory1?: string;
-    subcategory2?: string;
-  },
-) => {
-  const filePaths = getPostFilePaths();
+const getAllPosts = (dirPath: string, fields: string[] = []) => {
+  const filePaths = getPostFilePaths(dirPath);
   const posts = filePaths
-    .map((filePath) => getPostItems(filePath, fields.concat(['category', 'subcategory1', 'subcategory2'])))
-    .filter(
-      (postItem) =>
-        (!category || category === postItem.category) &&
-        (!subcategory1 || subcategory1 === postItem.subcategory1) &&
-        (!subcategory2 || subcategory2 === postItem.subcategory2),
-    )
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  // NOTE: 本来必要のない category もあるが検索上しょうがないので一旦放置
-  return posts;
-};
-
-const getAllPosts = (fields: string[] = []) => {
-  const filePaths = getPostFilePaths();
-  const posts = filePaths
-    .map((filePath) => getPostItems(filePath, fields))
+    .map((filePath) => getPostItems(filePath, dirPath, fields))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 };
 
-const getPostFilteredByCategory = (
-  slug: string,
-  { category, subcategory1, subcategory2 }: { category?: string; subcategory1?: string; subcategory2?: string },
-) => {
-  const filePaths = getPostFilePaths();
-  const filteredPaths = filePaths.filter((filePath) => {
-    const postItem = getPostItems(filePath, ['slug']);
-    return (
-      category === postItem.category &&
-      (!subcategory1 || subcategory1 === postItem.subcategory1) &&
-      (!subcategory2 || !postItem.subcategory2 || subcategory2 === postItem.subcategory2) &&
-      slug === postItem.slug
-    );
+const getBreadcrumbPaths = (
+  path: string,
+  frontMatter?: IPost,
+): {
+  href: string;
+  label: string;
+}[] => {
+  const tmpPath = `//${path}`;
+  const dividedPath = tmpPath.split(/(?=\/)/g);
+  let href = '';
+  const breadcrumbPaths = dividedPath.map((p, index) => {
+    if (index !== 0) {
+      href += p;
+    }
+    return {
+      href: index === 0 ? '/' : href,
+      // ディレクトリを自動で取得できない以上これは手動で確認するしかない
+      label: BREADCRUMB_LABEL.get(p) as string,
+    };
   });
 
-  return getPost(filteredPaths[0].replace(/\.mdx?$/, ''));
+  if (frontMatter) {
+    breadcrumbPaths.push({
+      href: `${href}/${frontMatter.slug}`,
+      label: frontMatter.title,
+    });
+  }
+
+  return breadcrumbPaths;
 };
 
-export { getPost, getAllPosts, getPostsFilteredByCategory, getPostFilteredByCategory };
+export { getPost, getAllPosts, getBreadcrumbPaths };
