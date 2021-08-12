@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header 1`] = `
+<header>
+  <div
+    className="logo_wrapper"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="logo"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        Rのゲームプログラミング教室
+      </a>
+    </div>
+  </div>
+  <div>
+    <nav
+      className="nav_bar"
+    >
+      <ul>
+        <li>
+          <a
+            className="menu_item current"
+            href="/theory"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            理論編
+          </a>
+        </li>
+        <li>
+          <a
+            className="menu_item"
+            href="/practice"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            実践編
+          </a>
+        </li>
+        <li>
+          <a
+            className="menu_item"
+            href="/about"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+`;

@@ -1,5 +1,6 @@
 .next
 
-# なぜかエラーが出るので除外
+# なぜかエラーが出るので除外 prettierは通る
 .eslintrc.js
 next.config.js
+jest.config.js

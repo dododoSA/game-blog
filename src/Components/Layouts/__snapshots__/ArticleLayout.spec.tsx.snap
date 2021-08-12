@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleLayout 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="container"
+  >
+    <ul>
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          HOME
+        </a>
+      </li>
+      <li>
+        <a
+          href="/theory"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          理論編
+        </a>
+      </li>
+      <li>
+        <a
+          href="/theory/pglanguage"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          プログラミング言語
+        </a>
+      </li>
+      <li>
+        <a
+          href="/theory/pglanguage/c"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          C言語
+        </a>
+      </li>
+      <li>
+        <a
+          href="/theory/pglanguage/c/setup"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          事前準備
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="article_wrapper"
+  >
+    <article
+      className="main_content"
+    >
+      hello
+    </article>
+    <aside
+      className="side_bar"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="spacer"
+        >
+          <p>
+            hello
+          </p>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div>
+    recent posts etc.
+  </div>
+</div>
+`;

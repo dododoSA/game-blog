@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbNavigation 1`] = `
+<div
+  className="container"
+>
+  <ul>
+    <li>
+      <a
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        HOME
+      </a>
+    </li>
+    <li>
+      <a
+        href="/theory"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        理論編
+      </a>
+    </li>
+    <li>
+      <a
+        href="/theory/pglanguage"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        プログラミング言語
+      </a>
+    </li>
+    <li>
+      <a
+        href="/theory/pglanguage/c"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        C言語
+      </a>
+    </li>
+    <li>
+      <a
+        href="/theory/pglanguage/c/setup"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        事前準備
+      </a>
+    </li>
+  </ul>
+</div>
+`;

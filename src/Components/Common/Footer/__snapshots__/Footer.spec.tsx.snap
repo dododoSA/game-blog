@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer 1`] = `
+<footer>
+  <div
+    className="copyright"
+  >
+    ©︎2021 R
+  </div>
+</footer>
+`;
