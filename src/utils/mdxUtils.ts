@@ -66,7 +66,7 @@ const getBreadcrumbPaths = (
     };
   });
 
-  if (frontMatter) {
+  if (frontMatter?.slug) {
     breadcrumbPaths.push({
       href: `${href}/${frontMatter.slug}`,
       label: frontMatter.title,

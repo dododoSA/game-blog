@@ -18,6 +18,8 @@ const Article = ({ source, frontMatter }: Props) => {
   return (
     <div className={styles.container}>
       <MDXProvider components={{}}>
+        <div>{frontMatter.date}</div>
+        {/* Typo防止のためh1はここで定義 */}
         <h1>{frontMatter.title}</h1>
         {/* ライブラリの書き方なので ignore */}
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}

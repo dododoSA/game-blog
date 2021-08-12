@@ -15,7 +15,7 @@ type Props = {
   frontMatter: Omit<IPost, 'slug'>;
 };
 
-const MDX_PATH = 'theory';
+const MDX_PATH = 'theory/pglanguage/c';
 
 export const getStaticProps: GetStaticProps = async () => {
   const { content, data } = getPost('index', MDX_PATH);
@@ -30,10 +30,10 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Theory = ({ breadcrumbPaths, source, frontMatter }: Props) => (
+const C = ({ breadcrumbPaths, source, frontMatter }: Props) => (
   <ArticleLayout breadcrumbPaths={breadcrumbPaths}>
     <Article source={source} frontMatter={frontMatter} />
   </ArticleLayout>
 );
 
-export default Theory;
+export default C;

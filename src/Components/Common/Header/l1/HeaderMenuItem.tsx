@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const HeaderMenuItem = ({ label, path }: { label: string; path: string }) => {
   const menuClass = cs(styles.menu_item, {
-    [styles.current]: useRouter().pathname === path,
+    [styles.current]: useRouter().pathname.includes(path),
   });
 
   return (

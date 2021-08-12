@@ -1,7 +1,7 @@
 export interface IPost {
-  slug: string;
+  slug?: string;
   category: string;
-  subcategory1: string;
+  subcategory1?: string;
   subcategory2?: string;
   date: string;
   thumbnail: string;
