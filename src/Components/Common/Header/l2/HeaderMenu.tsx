@@ -5,7 +5,7 @@ import styles from 'styles/Common/Header/l2/HeaderMenu.module.scss';
 const HeaderMenu = () => {
   const menuItems = MENU_ITEMS.map((m) => (
     <li key={m.label}>
-      <HeaderMenuItem path={m.path} label={m.label} />
+      <HeaderMenuItem path={m.path} label={m.label} child={m.child} />
     </li>
   ));
 

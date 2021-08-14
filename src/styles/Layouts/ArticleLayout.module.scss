@@ -9,12 +9,31 @@
 
     .main_content {
       width: calc(100% - 330px);
+
     }
 
     .side_bar {
       width: 300px;
+
     }
+
   }
 }
 
+// TODO: mixin
+// https://zenn.dev/web_tips/articles/095d7419507ca9
 
+@media screen and (max-width: 992px){
+  .container {
+    padding: 0 2.5rem;
+    > .article_wrapper {
+      > .main_content {
+        width: 100%;
+      }
+
+      > .side_bar {
+        display: none;
+      }
+    }
+  }
+}

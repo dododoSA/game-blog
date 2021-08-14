@@ -25,34 +25,77 @@ Array [
       >
         <ul>
           <li>
-            <a
-              className="menu_item"
-              href="/theory"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
+            <div
+              className="container"
             >
-              理論編
-            </a>
+              <a
+                className="menu_item"
+                href="/theory"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                理論編
+              </a>
+              <ul>
+                <li>
+                  <a
+                    href="/theory/pglanguage"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                  >
+                    プログラミング言語
+                  </a>
+                  <ul>
+                    <li>
+                      <a
+                        href="/theory/pglanguage/c"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                      >
+                        C言語
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="/theory/collision"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                  >
+                    当たり判定
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
-            <a
-              className="menu_item"
-              href="/practice"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
+            <div
+              className="container"
             >
-              実践編
-            </a>
+              <a
+                className="menu_item"
+                href="/practice"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                実践編
+              </a>
+            </div>
           </li>
           <li>
-            <a
-              className="menu_item"
-              href="/about"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
+            <div
+              className="container"
             >
-              About
-            </a>
+              <a
+                className="menu_item"
+                href="/about"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                About
+              </a>
+            </div>
           </li>
         </ul>
       </nav>
