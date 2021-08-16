@@ -11,6 +11,10 @@ const MENU_ITEMS = [
             label: 'C言語',
             path: '/theory/pglanguage/c',
           },
+          {
+            label: 'Python',
+            path: '/theory/pglanguage/python',
+          },
         ],
       },
       {

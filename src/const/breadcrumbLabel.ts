@@ -6,6 +6,7 @@ export const BREADCRUMB_LABEL = new Map<string, string>([
 
   ['/pglanguage', 'プログラミング言語'],
   ['/c', 'C言語'],
+  ['/python', 'Python'],
 
   ['/collision', '当たり判定'],
 

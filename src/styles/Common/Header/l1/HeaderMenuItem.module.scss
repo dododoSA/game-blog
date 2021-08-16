@@ -2,6 +2,8 @@ $menuBorder: 1px;
 
 .container {
   position: relative;
+  color: #1D3557;
+
   ul {
     list-style: none;
     display: none;
@@ -9,19 +11,23 @@ $menuBorder: 1px;
     padding: 0;
     width: 100%;
     position: absolute;
+
+    li {
+      height: 33px;
+    }
   }
 
   a {
     display: block;
+    padding: 0.5rem 1rem;
   }
 
   .menu_item {
     display: inline-block;
-    color: #1D3557;
     font-size: 2rem;
     padding: 1rem 1.5rem;
     width: 170px;
-    height: 80px;
+    height: 50px;
     text-align: center;
   }
 
