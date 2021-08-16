@@ -1,8 +1,7 @@
 .container {
   border-radius: 12px;
   background-color: #fff;
-}
-
-.spacer {
+  position: sticky;
+  top: 30px;
   padding: 20px;
 }

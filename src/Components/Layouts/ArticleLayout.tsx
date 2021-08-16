@@ -1,6 +1,7 @@
 import styles from 'styles/Layouts/ArticleLayout.module.scss';
 import { SideCard } from 'Components/SideContents/SideCard';
 import { BreadcrumbNavigation } from 'Components/Common/BreadcrumbNavigation/BreadcrumbNavigation';
+import { TableOfContents } from 'Components/SideContents/TableOfContents';
 
 // 記事関連のページのレイアウト
 const ArticleLayout = ({
@@ -19,11 +20,12 @@ const ArticleLayout = ({
       <article className={styles.main_content}>{children}</article>
       <aside className={styles.side_bar}>
         <SideCard>
-          <p>hello</p>
+          <TableOfContents />
         </SideCard>
       </aside>
     </div>
     <div>recent posts etc.</div>
   </div>
 );
+
 export { ArticleLayout };

@@ -12,6 +12,10 @@ jest.mock('next/router', () => ({
   },
 }));
 
+jest.mock('react', () => ({
+  useEffect() {},
+}));
+
 test('ArticleLayout', () => {
   // TODO: いろんなパスで正しいかどうかをチェックしたほうがいいかを考える
   const MDX_PATH = 'theory/pglanguage/c';
