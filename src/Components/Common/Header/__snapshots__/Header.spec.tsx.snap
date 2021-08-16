@@ -54,6 +54,15 @@ exports[`Header 1`] = `
                       C言語
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="/theory/pglanguage/python"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                    >
+                      Python
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li>
